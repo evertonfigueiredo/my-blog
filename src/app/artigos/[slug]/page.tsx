@@ -47,7 +47,7 @@ const customComponents = {
   ),
   code: ({ className, children }: CustomComponentProps) => {
     // Extrair a linguagem do classname
-    const language = className.replace('lang-', '')
+    const language = className?.replace('lang-', '')
     return <code className={`language-${language}`}>{children}</code>
   },
 }
@@ -71,10 +71,7 @@ interface GenerateMetadataProps {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: GenerateMetadataProps) {
+export async function generateMetadata({ params }: GenerateMetadataProps) {
   const id = params?.slug ? ' - ' + params?.slug : ''
   return {
     title: `Everton Figueiredo ${id.replaceAll('_', ' ')}`,
