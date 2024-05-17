@@ -26,11 +26,13 @@ export default function Header() {
     <>
       <div className="p-9 py-6 max-w-screen-xl mx-auto justify-between items-center hidden md:flex">
         <div className="flex space-x-10">
-          <Image src={logo} width={50} height={50} alt="logo" />
+          <Link href="/" className="cursor-pointer">
+            <Image src={logo} width={50} height={50} alt="logo" />
+          </Link>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="/docs" legacyBehavior passHref>
+                <Link href="/" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Everton Figueiredo
                   </NavigationMenuLink>
@@ -44,7 +46,9 @@ export default function Header() {
                       <NavigationMenuLink asChild>
                         <a
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                          href="/"
+                          target="_blank"
+                          href="https://discord.gg/fSFj9TnT3D"
+                          rel="noreferrer"
                         >
                           <DiscordLogoIcon className="h-10 w-10" />
                           <div className="mb-2 mt-4 text-lg font-medium">
@@ -57,11 +61,26 @@ export default function Header() {
                         </a>
                       </NavigationMenuLink>
                     </li>
-                    <ListItem href="" title="Instagram">
+                    <ListItem
+                      href="https://instagram.com/evertondev/"
+                      title="Instagram"
+                      target="_blank"
+                    >
                       Acompanhe um pouco do meu dia a dia.
                     </ListItem>
-                    <ListItem href="/docs/installation" title="Youtube">
+                    <ListItem
+                      href="https://www.youtube.com/@evertondev"
+                      title="Youtube"
+                      target="_blank"
+                    >
                       Venha estudar com a gente no nosso canal do Youtube
+                    </ListItem>
+                    <ListItem
+                      href="https://www.linkedin.com/in/everton-figueiredo/"
+                      title="Linkedin"
+                      target="_blank"
+                    >
+                      Entenda um pouco da minha vida profissional.
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>

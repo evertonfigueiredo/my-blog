@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function PostPreview(props: any) {
   const { post } = props
   return (
-    <Link href={`/artigos/${post.slug}`}>
+    <Link href={`/artigos/${post.slug}`} className="hover:text-gray-800">
       <div className="space-y-2">
         <h3 className="text-3xl font-bold">{post.title}</h3>
         <p className="text-lg">{post.bio}</p>

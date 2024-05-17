@@ -4,8 +4,8 @@ import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
 import { ThemeProvider } from 'next-themes'
 import Announcement from './(main)/announcement'
-import Header from './(main)/header'
-import Footer from './(main)/footer'
+import Header from './_components/header'
+import Footer from './_components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 

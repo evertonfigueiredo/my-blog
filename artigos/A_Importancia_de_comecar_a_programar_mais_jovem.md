@@ -1,6 +1,6 @@
 ---
 title: "A Importância de Começar a Programar Mais Jovem"
-prep_time: "12 min"
+prep_time: "4 min"
 date: "16 de Maio de 2024"
 description: "Os benefícios de iniciar a programação desde jovem, destacando seu impacto no desenvolvimento cognitivo e nas habilidades para o século XXI."
 topico: "Informação"
@@ -52,16 +52,6 @@ Existem muitas iniciativas e programas voltados para ensinar programação a cri
 ### Suporte dos Pais e Educadores
 
 O papel dos pais e educadores é crucial no incentivo à programação. Proporcionar um ambiente que valorize a aprendizagem de novas tecnologias e apoiar as crianças na busca de seus interesses pode fazer uma grande diferença.
-
-``` javascript
-const teste = 'oi'
-
-function oi(){
-    return "Olá"
-}
-
-oi()
-```
 
 ## Conclusão
 
