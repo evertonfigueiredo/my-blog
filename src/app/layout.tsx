@@ -10,8 +10,9 @@ import Footer from './_components/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Everton Figueiredo',
-  description: 'Meu Blog para ajudar você.',
+  title: 'Everton Figueiredo - Engenheiro de software júnior',
+  description:
+    'Engenheiro de software júnior especializado em desenvolvimento web, com experiência em PHP, CRM, e ensino de tecnologias. Conheça insights valiosos sobre desenvolvimento de software e infraestrutura de TI em meu blog.',
 }
 
 export default function RootLayout({

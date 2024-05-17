@@ -14,7 +14,6 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
-import { NextRequest } from 'next/server'
 import path from 'path'
 
 interface CustomComponentProps {

@@ -1,6 +1,6 @@
 ---
 title: "O Impacto da Educação em Tecnologia no Ensino Formal"
-prep_time: "12 min"
+prep_time: "4 min"
 date: "16 de Maio de 2024"
 description: "Como a integração da tecnologia no ensino formal prepara os alunos para o futuro, destacando exemplos de programas educacionais bem-sucedidos e os desafios enfrentados na implementação."
 topico: "Informação"
