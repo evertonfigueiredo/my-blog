@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react'
 
 import { cn } from '@/lib/utils'
@@ -25,6 +26,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 import { EnvelopeClosedIcon } from '@radix-ui/react-icons'
+import { toast } from '@/components/ui/use-toast'
 
 export function InscrevaDialog() {
   const [open, setOpen] = React.useState(false)
@@ -40,8 +42,10 @@ export function InscrevaDialog() {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>Texto</DialogDescription>
+            <DialogTitle>NewsLetter Everton Figueiredo</DialogTitle>
+            <DialogDescription>
+              Venha fazer parte dessa comunidade.
+            </DialogDescription>
           </DialogHeader>
           <ProfileForm />
         </DialogContent>
@@ -58,13 +62,15 @@ export function InscrevaDialog() {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>Texto</DrawerDescription>
+          <DrawerTitle>NewsLetter Everton Figueiredo</DrawerTitle>
+          <DrawerDescription>
+            Venha fazer parte dessa comunidade.
+          </DrawerDescription>
         </DrawerHeader>
         <ProfileForm className="px-4" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline">Cancelar</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
@@ -73,17 +79,69 @@ export function InscrevaDialog() {
 }
 
 function ProfileForm({ className }: React.ComponentProps<'form'>) {
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [fone, setFone] = React.useState('null')
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
+    async function fetchData() {
+      console.log({ name, email, fone })
+
+      const response = await fetch(
+        `https://amused-tick-coat.cyclic.app/lead/`,
+        {
+          method: 'POST',
+          body: JSON.stringify({ name, email, fone }),
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      const data = await response.json()
+      if (data.statusCode === 201) {
+        toast({
+          title: 'Sucesso!',
+          description: 'Parabéns, seu e-mail foi cadastrado com sucesso!',
+        })
+      } else {
+        toast({
+          title: 'Error!',
+          description: 'Por favor, tente novamente mais tarde.',
+        })
+      }
+      setName('')
+      setEmail('')
+    }
+    fetchData()
+  }
   return (
-    <form className={cn('grid items-start gap-4', className)}>
+    <form
+      className={cn('grid items-start gap-4', className)}
+      onSubmit={handleSubmit}
+    >
       <div className="grid gap-2">
         <Label htmlFor="username">Seu nome</Label>
-        <Input id="username" defaultValue="@shadcn" />
+        <Input
+          id="username"
+          value={name}
+          placeholder="Seu nome..."
+          onChange={(event) => setName(event.target.value)}
+        />
       </div>
       <div className="grid gap-2">
         <Label htmlFor="email">Seu E-mail</Label>
-        <Input type="email" id="email" defaultValue="shadcn@example.com" />
+        <Input
+          type="email"
+          id="email"
+          value={email}
+          placeholder="Seu email..."
+          onChange={(event) => setEmail(event.target.value)}
+        />
       </div>
-      <Button type="submit">Save changes</Button>
+      <Button type="submit">Inscrever-se</Button>
     </form>
   )
 }
